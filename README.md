@@ -1,4 +1,5 @@
 🎓 Console-Based Student Management System (Java)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A terminal-based application that manages student records efficiently. 
 
@@ -23,6 +24,7 @@ Built with Core Java, OOP, and Collections Framework for modular and scalable co
 📑 Menu-Driven – Simple console-based navigation for ease of use.
 
 🛠 Tech Stack
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Language: Java (Core Java, OOP, Collections)
 
