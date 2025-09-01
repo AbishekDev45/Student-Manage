@@ -9,15 +9,15 @@ public class Student {
 	private String dept;
 	private String email;
 	private int TotSub;
-	private HashMap<Integer, Integer> m = new HashMap<>();
+	private HashMap<Integer, Integer> marks = new HashMap<>();
 
-	public Student(String name, int rollno, String dept, String email, int TotSub, HashMap<Integer, Integer> m) {
+	public Student(String name, int rollno, String dept, String email, int TotSub, HashMap<Integer, Integer> marks) {
 		this.name = name;
 		this.rollno = rollno;
 		this.dept = dept;
 		this.email = email;
 		this.TotSub = TotSub;
-		this.m = m;
+		this.marks = marks;
 	}
 
 	public String getName() {
@@ -52,12 +52,20 @@ public class Student {
 		this.email = email;
 	}
 
-	public HashMap<Integer, Integer> getM() {
-		return m;
+	public HashMap<Integer, Integer> getMarks() {
+		return marks;
 	}
 
-	public void setM(HashMap<Integer, Integer> m) {
-		this.m = m;
+	public void setMarks(HashMap<Integer, Integer> marks) {
+		this.marks = marks;
+	}
+    
+	public int getTotSub() {
+		return TotSub;
+	}
+
+	public void setTotSub(int TotSub) {
+		this.TotSub = TotSub;
 	}
 
 	@Override
@@ -71,7 +79,7 @@ public class Student {
 				.append("Email   : ").append(email).append("\n")
 				.append("Marks   :\n");
 
-		for (Map.Entry<Integer, Integer> entry : m.entrySet()) {
+		for (Map.Entry<Integer, Integer> entry : marks.entrySet()) {
 			sb.append("   ").append(entry.getKey())
 					.append(" : ").append(entry.getValue())
 					.append("\n");
@@ -81,12 +89,5 @@ public class Student {
 		return sb.toString();
 	}
 
-	public int getTotSub() {
-		return TotSub;
-	}
-
-	public void setTotSub(int TotSub) {
-		this.TotSub = TotSub;
-	}
 
 }
