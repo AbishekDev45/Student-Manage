@@ -1,20 +1,23 @@
 package student_management;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Student {
 	private String name;
 	private int rollno;
 	private String dept;
 	private String email;
-	private int marks[] = new int[2];
+	private int TotSub;
+	private HashMap<Integer, Integer> m = new HashMap<>();
 
-	public Student(String name, int rollno, String dept, String email, int[] marks) {
+	public Student(String name, int rollno, String dept, String email, int TotSub, HashMap<Integer, Integer> m) {
 		this.name = name;
 		this.rollno = rollno;
 		this.dept = dept;
 		this.email = email;
-		this.marks = marks;
+		this.TotSub = TotSub;
+		this.m = m;
 	}
 
 	public String getName() {
@@ -49,24 +52,41 @@ public class Student {
 		this.email = email;
 	}
 
-	public int[] getMarks() {
-		return marks;
+	public HashMap<Integer, Integer> getM() {
+		return m;
 	}
 
-	public void setMarks(int[] marks) {
-		this.marks = marks;
+	public void setM(HashMap<Integer, Integer> m) {
+		this.m = m;
 	}
 
 	@Override
 	public String toString() {
-		return "Student Details:\n"
-				+ "-----------------------------\n"
-				+ "Name    : " + name + "\n"
-				+ "Roll.No : " + rollno + "\n"
-				+ "Dept    : " + dept + "\n"
-				+ "Email   : " + email + "\n"
-				+ "Marks   : " + Arrays.toString(marks) + "\n"
-				+ "-----------------------------\n";
+		StringBuilder sb = new StringBuilder();
+		sb.append("Student Details:\n")
+				.append("-----------------------------\n")
+				.append("Name    : ").append(name).append("\n")
+				.append("Roll.No : ").append(rollno).append("\n")
+				.append("Dept    : ").append(dept).append("\n")
+				.append("Email   : ").append(email).append("\n")
+				.append("Marks   :\n");
+
+		for (Map.Entry<Integer, Integer> entry : m.entrySet()) {
+			sb.append("   ").append(entry.getKey())
+					.append(" : ").append(entry.getValue())
+					.append("\n");
+		}
+
+		sb.append("-----------------------------\n");
+		return sb.toString();
+	}
+
+	public int getTotSub() {
+		return TotSub;
+	}
+
+	public void setTotSub(int TotSub) {
+		this.TotSub = TotSub;
 	}
 
 }
