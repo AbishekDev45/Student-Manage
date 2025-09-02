@@ -67,7 +67,7 @@ public class Student {
 	public void setTotSub(int TotSub) {
 		this.TotSub = TotSub;
 	}
-  
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
