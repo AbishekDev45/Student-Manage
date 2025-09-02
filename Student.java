@@ -59,14 +59,6 @@ public class Student {
 	public void setMarks(HashMap<Integer, Integer> marks) {
 		this.marks = marks;
 	}
-    
-	public int getTotSub() {
-		return TotSub;
-	}
-
-	public void setTotSub(int TotSub) {
-		this.TotSub = TotSub;
-	}
 
 	@Override
 	public String toString() {
@@ -89,5 +81,11 @@ public class Student {
 		return sb.toString();
 	}
 
+	public int getTotSub() {
+		return TotSub;
+	}
 
+	public void setTotSub(int TotSub) {
+		this.TotSub = TotSub;
+	}
 }

@@ -3,11 +3,12 @@ package student_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class StudentManager {
 	ArrayList<Student> stu = new ArrayList<>();
-	HashMap<Integer, Integer> marks = new HashMap<>();
+	LinkedHashMap<Integer, Integer> marks = new LinkedHashMap<>();
 
 	public void addStudent(Scanner sc) {
 		try {
