@@ -60,6 +60,14 @@ public class Student {
 		this.marks = marks;
 	}
 
+	public int getTotSub() {
+		return TotSub;
+	}
+
+	public void setTotSub(int TotSub) {
+		this.TotSub = TotSub;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -81,11 +89,4 @@ public class Student {
 		return sb.toString();
 	}
 
-	public int getTotSub() {
-		return TotSub;
-	}
-
-	public void setTotSub(int TotSub) {
-		this.TotSub = TotSub;
-	}
 }
