@@ -12,54 +12,52 @@ public class StudentManager {
 
 	public void addStudent(Scanner sc) {
 		try {
-			System.out.println(ConsoleColors.CYAN + "Enter Roll Number: " + ConsoleColors.RESET);
+			System.out.println("Enter Roll Number: ");
 			int rollno = sc.nextInt();
 			sc.nextLine();
 
 			for (Student s : stu) {
 				if (s.getrollno() == rollno) {
-					System.out.println(ConsoleColors.YELLOW +
-							"⚠ Student with Roll No " + rollno + " already exists. Use updateStudent to modify."
-							+ ConsoleColors.RESET);
+					System.out.println(
+							"Student with Roll No " + rollno + " already exists. Use updateStudent to modify.");
 					return;
 				}
 			}
 
-			System.out.println(ConsoleColors.CYAN + "Enter Name: " + ConsoleColors.RESET);
+			System.out.println("Enter Name: ");
 			String name = sc.nextLine();
-			System.out.println(ConsoleColors.CYAN + "Enter Dept: " + ConsoleColors.RESET);
+			System.out.println("Enter Dept: ");
 			String dept = sc.nextLine();
-			System.out.println(ConsoleColors.CYAN + "Enter Email: " + ConsoleColors.RESET);
+			System.out.println("Enter Email: ");
 			String email = sc.nextLine();
 
-			System.out.println(ConsoleColors.CYAN + "Enter No.of Subjects: " + ConsoleColors.RESET);
+			System.out.println("Enter No.of Subjects: ");
 			int TotSub = sc.nextInt();
 
 			HashMap<Integer, Integer> marks = new HashMap<>();
 			for (int i = 1; i <= TotSub; i++) {
-				System.out.print(ConsoleColors.BLUE + "Enter Marks for Subject " + i + ": " + ConsoleColors.RESET);
+				System.out.print("Enter Marks for Subject " + i + ": ");
 				int Marks = sc.nextInt();
 				marks.put(i, Marks);
 			}
 
 			Student s1 = new Student(name, rollno, dept, email, TotSub, marks);
 			stu.add(s1);
-			System.out.println(ConsoleColors.GREEN + "✅ Student added successfully!" + ConsoleColors.RESET);
+			System.out.println("Student added successfully!");
 
 		} catch (InputMismatchException e) {
-			System.out.println(ConsoleColors.RED + "⚠ Invalid input! Please enter numbers only where required."
-					+ ConsoleColors.RESET);
+			System.out.println("Invalid input! Please enter numbers only where required.");
 			sc.nextLine();
 		}
 	}
 
 	public void viewAllStudents() {
 		if (stu.isEmpty()) {
-			System.out.println(ConsoleColors.YELLOW + "⚠ No students found!" + ConsoleColors.RESET);
+			System.out.println("No students found!");
 			return;
 		}
 		for (Student i : stu) {
-			System.out.println(ConsoleColors.PURPLE + i + ConsoleColors.RESET);
+			System.out.println(i);
 		}
 	}
 
@@ -67,14 +65,13 @@ public class StudentManager {
 		boolean found = false;
 		for (Student s : stu) {
 			if (s.getrollno() == searchRoll) {
-				System.out.println(ConsoleColors.GREEN + s + ConsoleColors.RESET);
+				System.out.println(s);
 				found = true;
 				break;
 			}
 		}
 		if (!found) {
-			System.out.println(
-					ConsoleColors.RED + "⚠ Student with Roll No " + searchRoll + " not found." + ConsoleColors.RESET);
+			System.out.println("Student with Roll No " + searchRoll + " not found.");
 		}
 	}
 
@@ -83,15 +80,13 @@ public class StudentManager {
 		for (int i = 0; i < stu.size(); i++) {
 			if (stu.get(i).getrollno() == deleteRoll) {
 				stu.remove(i);
-				System.out.println(ConsoleColors.GREEN + "✅ Student with Roll No " + deleteRoll
-						+ " deleted successfully." + ConsoleColors.RESET);
+				System.out.println("Student with Roll No " + deleteRoll + " deleted successfully.");
 				found = true;
 				break;
 			}
 		}
 		if (!found) {
-			System.out.println(
-					ConsoleColors.RED + "⚠ Student with Roll No " + deleteRoll + " not found." + ConsoleColors.RESET);
+			System.out.println("Student with Roll No " + deleteRoll + " not found.");
 		}
 	}
 
@@ -102,7 +97,7 @@ public class StudentManager {
 			if (s.getrollno() == updateRoll) {
 				found = true;
 
-				System.out.println(ConsoleColors.CYAN + "What do you want to update?" + ConsoleColors.RESET);
+				System.out.println("What do you want to update?");
 				System.out.println("1. Name");
 				System.out.println("2. Dept");
 				System.out.println("3. Email");
@@ -112,48 +107,45 @@ public class StudentManager {
 
 				switch (choice) {
 					case 1 -> {
-						System.out.println(ConsoleColors.CYAN + "Enter new Name: " + ConsoleColors.RESET);
+						System.out.println("Enter new Name: ");
 						s.setName(sc.nextLine());
 					}
 					case 2 -> {
-						System.out.println(ConsoleColors.CYAN + "Enter new Dept: " + ConsoleColors.RESET);
+						System.out.println("Enter new Dept: ");
 						s.setDept(sc.nextLine());
 					}
 					case 3 -> {
-						System.out.println(ConsoleColors.CYAN + "Enter new Email: " + ConsoleColors.RESET);
+						System.out.println("Enter new Email: ");
 						s.setEmail(sc.nextLine());
 					}
 					case 4 -> {
-						System.out.println(ConsoleColors.CYAN + "Enter new Total Subjects: " + ConsoleColors.RESET);
+						System.out.println("Enter new Total Subjects: ");
 						int TotSub = sc.nextInt();
 						HashMap<Integer, Integer> marks = new HashMap<>();
 						for (int i = 1; i <= TotSub; i++) {
-							System.out.print(
-									ConsoleColors.BLUE + "Enter Marks for Subject " + i + ": " + ConsoleColors.RESET);
+							System.out.print("Enter Marks for Subject " + i + ": ");
 							int Marks = sc.nextInt();
 							marks.put(i, Marks);
 						}
 						s.setTotSub(TotSub);
 						s.setMarks(marks);
 					}
-					default -> System.out.println(ConsoleColors.RED + "⚠ Invalid choice!" + ConsoleColors.RESET);
+					default -> System.out.println("Invalid choice!");
 				}
 
-				System.out.println(ConsoleColors.GREEN + "✅ Student with Roll No " + updateRoll
-						+ " updated successfully!" + ConsoleColors.RESET);
+				System.out.println("Student with Roll No " + updateRoll + " updated successfully!");
 				break;
 			}
 		}
 
 		if (!found) {
-			System.out.println(
-					ConsoleColors.RED + "⚠ Student with Roll No " + updateRoll + " not found." + ConsoleColors.RESET);
+			System.out.println("Student with Roll No " + updateRoll + " not found.");
 		}
 	}
 
 	public void displayTopPerformer() {
 		if (stu.isEmpty()) {
-			System.out.println(ConsoleColors.YELLOW + "⚠ No students available." + ConsoleColors.RESET);
+			System.out.println("No students available.");
 			return;
 		}
 
@@ -171,11 +163,11 @@ public class StudentManager {
 			}
 		}
 		if (topStudent != null) {
-			System.out.println(ConsoleColors.PURPLE + "🏆 Top Performer:" + ConsoleColors.RESET);
-			System.out.println(ConsoleColors.GREEN + "Name: " + topStudent.getName() + ConsoleColors.RESET);
-			System.out.println(ConsoleColors.GREEN + "Roll No: " + topStudent.getrollno() + ConsoleColors.RESET);
-			System.out.println(ConsoleColors.GREEN + "Total Marks: " + highestTotal + ConsoleColors.RESET);
-			System.out.println(ConsoleColors.CYAN + "-------------------------" + ConsoleColors.RESET);
+			System.out.println("Top Performer:");
+			System.out.println("Name: " + topStudent.getName());
+			System.out.println("Roll No: " + topStudent.getrollno());
+			System.out.println("Total Marks: " + highestTotal);
+			System.out.println("-------------------------");
 		}
 	}
 }

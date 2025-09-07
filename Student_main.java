@@ -9,26 +9,24 @@ public class Student_main {
         int choice;
 
         do {
-            System.out.println(
-                    ConsoleColors.PURPLE + "\n==========================================" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.CYAN + "   🎓 Student Record Management System" + ConsoleColors.RESET);
-            System.out
-                    .println(ConsoleColors.PURPLE + "==========================================" + ConsoleColors.RESET);
+            System.out.println("\n==========================================");
+            System.out.println("   🎓 Student Record Management System");
+            System.out.println("==========================================");
 
-            System.out.println(ConsoleColors.YELLOW + "1. Add Student" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.YELLOW + "2. View All Students" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.YELLOW + "3. Search Student by Roll No" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.YELLOW + "4. Delete Student" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.YELLOW + "5. Update Student" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.YELLOW + "6. Display Top Performer" + ConsoleColors.RESET);
-            System.out.println(ConsoleColors.YELLOW + "7. Exit" + ConsoleColors.RESET);
+            System.out.println("1. Add Student");
+            System.out.println("2. View All Students");
+            System.out.println("3. Search Student by Roll No");
+            System.out.println("4. Delete Student");
+            System.out.println("5. Update Student");
+            System.out.println("6. Display Top Performer");
+            System.out.println("7. Exit");
 
-            System.out.print(ConsoleColors.BLUE + "\n👉 Enter your choice: " + ConsoleColors.RESET);
+            System.out.print("\nEnter your choice: ");
 
             while (!sc.hasNextInt()) {
-                System.out.println(ConsoleColors.RED + "⚠ Invalid input! Please enter a number." + ConsoleColors.RESET);
+                System.out.println("⚠ Invalid input! Please enter a number.");
                 sc.next();
-                System.out.print(ConsoleColors.BLUE + "👉 Enter your choice: " + ConsoleColors.RESET);
+                System.out.print("Enter your choice: ");
             }
             choice = sc.nextInt();
             sc.nextLine(); // consume newline
@@ -41,17 +39,17 @@ public class Student_main {
                     manager.viewAllStudents();
                     break;
                 case 3:
-                    System.out.print(ConsoleColors.BLUE + "🔍 Enter roll number to search: " + ConsoleColors.RESET);
+                    System.out.print("Enter roll number to search: ");
                     int searchRoll = sc.nextInt();
                     manager.searchStudent(searchRoll);
                     break;
                 case 4:
-                    System.out.print(ConsoleColors.BLUE + "❌ Enter roll number to delete: " + ConsoleColors.RESET);
+                    System.out.print("Enter roll number to delete: ");
                     int deleteRoll = sc.nextInt();
                     manager.deleteStudent(deleteRoll);
                     break;
                 case 5:
-                    System.out.print(ConsoleColors.BLUE + "✏ Enter roll number to update: " + ConsoleColors.RESET);
+                    System.out.print("Enter roll number to update: ");
                     int updateRoll = sc.nextInt();
                     sc.nextLine();
                     manager.updateStudent(updateRoll, sc);
@@ -60,10 +58,10 @@ public class Student_main {
                     manager.displayTopPerformer();
                     break;
                 case 7:
-                    System.out.println(ConsoleColors.GREEN + "✅ Exiting... Goodbye!" + ConsoleColors.RESET);
+                    System.out.println("Exiting... Goodbye!");
                     break;
                 default:
-                    System.out.println(ConsoleColors.RED + "⚠ Invalid choice. Try again." + ConsoleColors.RESET);
+                    System.out.println("Invalid choice. Try again.");
             }
         } while (choice != 7);
 
