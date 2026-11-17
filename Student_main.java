@@ -1,4 +1,4 @@
-package student_management;
+package student_management1;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ public class Student_main {
 
         do {
             System.out.println("\n==========================================");
-            System.out.println("   🎓 Student Record Management System");
+            System.out.println("   Student Record Management System");
             System.out.println("==========================================");
 
             System.out.println("1. Add Student");
@@ -24,7 +24,7 @@ public class Student_main {
             System.out.print("\nEnter your choice: ");
 
             while (!sc.hasNextInt()) {
-                System.out.println("⚠ Invalid input! Please enter a number.");
+                System.out.println("Invalid input! Please enter a number.");
                 sc.next();
                 System.out.print("Enter your choice: ");
             }

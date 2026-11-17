@@ -1,4 +1,4 @@
-package student_management;
+package student_management1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class StudentManager {
 			for (Student s : stu) {
 				if (s.getrollno() == rollno) {
 					System.out.println(
-							"Student with Roll No " + rollno + " already exists. Use updateStudent to modify.");
+							"Student with Roll No " + rollno + " already exists. Use UpdateStudent to modify.");
 					return;
 				}
 			}
@@ -33,7 +33,7 @@ public class StudentManager {
 
 			System.out.println("Enter No.of Subjects: ");
 			int TotSub = sc.nextInt();
-
+            int n = 0;
 			HashMap<Integer, Integer> marks = new HashMap<>();
 			for (int i = 1; i <= TotSub; i++) {
 				System.out.print("Enter Marks for Subject " + i + ": ");
